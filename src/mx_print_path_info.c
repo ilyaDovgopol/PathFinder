@@ -54,8 +54,9 @@ static void print_dist(t_stack *stack, t_app *app) {
         int total_dist = 0;
 
         for (int i = 1; i < stack->size; i++) {
-            int dist = app->a_m[stack->path[i] * app->size + stack->path[i + 1]];
+            int dist = 0;
 
+            dist = app->a_m[stack->path[i] * app->size + stack->path[i + 1]];
             total_dist += dist;
             mx_printint(dist);
             i + 1 < stack->size ? mx_printstr(" + ") : mx_printstr("");
