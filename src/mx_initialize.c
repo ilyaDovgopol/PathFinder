@@ -1,8 +1,8 @@
 #include "pathfinder.h"
 
 static char *read_file(char *argv[], t_app *app);
-static void check_file(t_app *app);
 static void check_empty_lines(char *s, t_app *app);
+static void check_file(t_app *app);
 
 void mx_initialize(t_app *app, int argc, char *argv[]) {
     char *s = NULL;
