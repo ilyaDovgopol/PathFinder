@@ -10,13 +10,11 @@ void mx_restore_path_helper(t_stack *stack, t_app *app) {
         mx_print_path_info(stack, app);
         return;
     }
-    else {
-        for (int next = 0; next < app->size; next++) {
-            if (is_next(stack, app, next)) {
-                push_in_stack(stack, next);
-                mx_restore_path_helper(stack, app);
-                pop_from_stack(stack);
-            }
+    for (int next = 0; next < app->size; next++) {
+        if (is_next(stack, app, next)) {
+            push_in_stack(stack, next);
+            mx_restore_path_helper(stack, app);
+            pop_from_stack(stack);
         }
     }
 }

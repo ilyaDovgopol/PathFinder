@@ -14,12 +14,12 @@ void mx_cast_error_message(e_err err, t_app *app) {
         file_is_empty(app);
     else if (err == MX_LINE1_ISNT_VALID)
         mx_printerr("error: line 1 is not valid");
-    else if (err == MX_LINE_ISNT_VALID)
-        line_is_not_valid(app);
-    else if (err == MX_ISLANDS_INVALID_NUMBER)
-        mx_printerr("error: invalid number of islands");
     else if (err == MX_LINE_IS_EMPTY)
         line_is_empty(app);
+    else if (err == MX_ISLANDS_INVALID_NUMBER)
+        mx_printerr("error: invalid number of islands");
+    else if (err == MX_LINE_ISNT_VALID)
+        line_is_not_valid(app);
     mx_printerr("\n");
     exit(1);
 }

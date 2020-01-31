@@ -4,35 +4,35 @@
 #include "libmx.h"
 
 typedef struct s_app {
+    char *file_name;
+    char *file_to_str;
+    int k;
+    char **parsed_lines_arr;
     int size;
     char **city;
     int *a_m;
-    int *dist_m;
-    char **parsed_lines_arr;
-    char *file_to_str;
-    int invalid_line_nbr;
-    char *file_name;
-    int k;
     unsigned int sum_dist;
-    size_t x;
+    int invalid_line_nbr;
+    int *dist_m;
     size_t y;
+    size_t x;
 }   t_app;
-
-typedef struct s_stack {
-    int *path;
-    int size;
-    int max_size;
-}   t_stack;
 
 typedef enum e_err {
     MX_ARGUMENTS_INVALID_NUMBER,
     MX_FILE_DOESNT_EXIST,
     MX_FILE_IS_EMPTY,
     MX_LINE1_ISNT_VALID,
-    MX_LINE_ISNT_VALID,
+    MX_LINE_IS_EMPTY,
     MX_ISLANDS_INVALID_NUMBER,
-    MX_LINE_IS_EMPTY
+    MX_LINE_ISNT_VALID
 }   e_err;
+
+typedef struct s_stack {
+    int max_size;
+    int *path;
+    int size;
+}   t_stack;
 
 void mx_initialize(t_app *app, int argc, char *argv[]);
 void mx_cast_error_message(e_err err, t_app *app);

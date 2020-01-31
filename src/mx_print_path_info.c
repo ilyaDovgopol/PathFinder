@@ -46,23 +46,21 @@ static void print_route(t_stack *stack, t_app *app) {
 }
 
 static void print_dist(t_stack *stack, t_app *app) {
+    int total_dist = 0;
+
     mx_printstr("Distance: ");
     if (stack->size == 2) {
         mx_printint(app->dist_m[stack->path[0] * app->size + stack->path[1]]);
+        return;
     }
-    else {
-        int total_dist = 0;
+    for (int i = 1; i < stack->size; i++) {
+        int dist = app->a_m[stack->path[i] * app->size + stack->path[i + 1]];
 
-        for (int i = 1; i < stack->size; i++) {
-            int dist = 0;
-
-            dist = app->a_m[stack->path[i] * app->size + stack->path[i + 1]];
-            total_dist += dist;
-            mx_printint(dist);
-            i + 1 < stack->size ? mx_printstr(" + ") : mx_printstr("");
-        }
-        mx_printstr(" = ");
-        mx_printint(total_dist);
+        total_dist += dist;
+        mx_printint(dist);
+        i + 1 < stack->size ? mx_printstr(" + ") : mx_printstr("");
     }
+    mx_printstr(" = ");
+    mx_printint(total_dist);
 }
 

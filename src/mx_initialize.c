@@ -7,11 +7,12 @@ static void check_file(t_app *app);
 void mx_initialize(t_app *app, int argc, char *argv[]) {
     char *s = NULL;
 
+    app->file_name = NULL;
+    app->file_to_str = NULL;
+    app->parsed_lines_arr = NULL;
     app->city = NULL;
     app->a_m = NULL;
     app->dist_m = NULL;
-    app->parsed_lines_arr = NULL;
-    app->file_to_str = NULL;
     if (argc != 2) {
         mx_cast_error_message(MX_ARGUMENTS_INVALID_NUMBER, app);
     }
