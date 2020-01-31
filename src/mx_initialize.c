@@ -53,10 +53,10 @@ static void check_empty_lines(char *s, t_app *app) {
     for (int i = 0; s[i] != '\0'; i++) {
         if (s[i] == '\n') {
             count++;
-        }
-        if (s[i] == '\n' && s[i + 1] == '\n') {
-            app->k = count + 1;
-            mx_cast_error_message(MX_LINE_IS_EMPTY, app);
+            if (s[i + 1] == '\n') {
+                app->k = count + 1;
+                mx_cast_error_message(MX_LINE_IS_EMPTY, app);
+            }
         }
     }
 }
@@ -71,11 +71,11 @@ static void check_file(t_app *app) {
     if (!app->size && !line[1]) {
         exit(0);
     }
-    if (app->size == -1) {
-        mx_cast_error_message(MX_LINE1_ISNT_VALID, app);
-    }
     if (!app->size && line[1]) {
         mx_cast_error_message(MX_ISLANDS_INVALID_NUMBER, app);
+    }
+    if (app->size == -1) {
+        mx_cast_error_message(MX_LINE1_ISNT_VALID, app);
     }
 }
 
