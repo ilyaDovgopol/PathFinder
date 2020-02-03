@@ -16,7 +16,7 @@ INC = pathfinder.h
 
 INCS = $(addprefix $(INCD)/, $(INC))
 
-SRC = main.c mx_atoi.c mx_cast_error_message.c mx_city_push_index.c \
+SRC = main.c mx_atoi.c mx_cast_error_message.c mx_island_push_index.c \
 mx_free_all.c mx_restore_path_helper.c mx_initialize.c mx_isalpha.c \
 mx_make_dist_matrix.c mx_parse_remaining_lines.c mx_print_path_info.c \
 mx_printerr.c mx_restore_all_paths.c \

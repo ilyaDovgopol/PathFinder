@@ -32,7 +32,7 @@ static void print_path(t_app *app, t_stack *stack) {
 }
 
 static char *get_name_by_id(t_app *app, int i) {
-    return app->city[i];
+    return app->islands_arr[i];
 }
 
 static void print_route(t_stack *stack, t_app *app) {

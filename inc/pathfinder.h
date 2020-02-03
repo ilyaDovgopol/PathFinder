@@ -9,7 +9,7 @@ typedef struct s_app {
     int k;
     char **parsed_lines_arr;
     int size;
-    char **city;
+    char **islands_arr;
     int *a_m;
     unsigned int sum_dist;
     int invalid_line_nbr;
@@ -34,13 +34,13 @@ typedef struct s_stack {
     int size;
 }   t_stack;
 
-void mx_initialize(t_app *app, int argc, char *argv[]);
+void mx_initialize(t_app *app, char *argv[]);
 void mx_cast_error_message(e_err err, t_app *app);
 void mx_printerr(const char *s);
 int mx_atoi(char *s);
 void mx_parse_remaining_lines(t_app *app, char **parsed_str);
 bool mx_isalpha(int c);
-void mx_city_push_index(t_app *app, int dist, char *city1, char *city2);
+void mx_island_push_index(t_app *app, int dist, char *island1, char *island2);
 void mx_make_cost_matrix(t_app *app);
 void mx_restore_all_paths(t_app *app);
 void mx_restore_path_helper(t_stack *stack, t_app *app);

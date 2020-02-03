@@ -1,39 +1,39 @@
 #include "pathfinder.h"
 
-static void init_city(t_app *app);
+static void init_islands_arr(t_app *app);
 static void init_adjacency_matrix(t_app *app);
-static bool parse_line(char *line, char **city1, char **city2, int *dist);
+static bool parse_line(char *line, char **island1, char **island2, int *dist);
 static bool is_valid_name(char *s);
 
 void mx_parse_remaining_lines(t_app *app, char **parsed_str) {
-    init_city(app);
+    init_islands_arr(app);
     init_adjacency_matrix(app);
     for (int i = 1; parsed_str[i] != NULL; i++) {
-        char *city1 = NULL;
-        char *city2 = NULL;
+        char *island1 = NULL;
+        char *island2 = NULL;
         int dist = -1;
 
-        if (parse_line(parsed_str[i], &city1, &city2, &dist)) {
-            mx_city_push_index(app, dist, city1, city2);
+        if (parse_line(parsed_str[i], &island1, &island2, &dist)) {
+            mx_island_push_index(app, dist, island1, island2);
         }
         else {
-            free(city1);
-            free(city2);
+            free(island1);
+            free(island2);
             app->invalid_line_nbr = i + 1;
             mx_cast_error_message(MX_LINE_ISNT_VALID, app);
         }
-        free(city1);
-        free(city2);
+        free(island1);
+        free(island2);
     }
 }
 
-static void init_city(t_app *app) {
-    app->city = malloc((app->size + 1) * sizeof(char *));
-    if (!app->city) {
+static void init_islands_arr(t_app *app) {
+    app->islands_arr = malloc((app->size + 1) * sizeof(char *));
+    if (!app->islands_arr) {
         exit(1);
     }
     for (int i = 0; i < app->size + 1; i++) {
-        app->city[i] = NULL;
+        app->islands_arr[i] = NULL;
     }
 }
 
@@ -51,7 +51,7 @@ static void init_adjacency_matrix(t_app *app) {
     }
 }
 
-static bool parse_line(char *line, char **city1, char **city2, int *dist) {
+static bool parse_line(char *line, char **island1, char **island2, int *dist) {
     int dash_index = mx_get_char_index(line, '-');
     int comma_index = mx_get_char_index(line, ',');
     int len = mx_strlen(line);
@@ -61,14 +61,14 @@ static bool parse_line(char *line, char **city1, char **city2, int *dist) {
         || dash_index > comma_index) {
         return false;
     }
-    *city1 = mx_strndup(line, dash_index);
-    *city2 = mx_strndup(line + dash_index + 1, comma_index - dash_index - 1);
-    if (!is_valid_name(*city1) || !is_valid_name(*city2)) {
+    *island1 = mx_strndup(line, dash_index);
+    *island2 = mx_strndup(line + dash_index + 1, comma_index - dash_index - 1);
+    if (!is_valid_name(*island1) || !is_valid_name(*island2)) {
         return false;
     }
     ascii_digit = mx_strndup(line + comma_index + 1, len - comma_index - 1);
     *dist = mx_atoi(ascii_digit);
-    if (*dist == -1 || *dist == -2 || !(*dist))
+    if (*dist == -1 || !(*dist))
         return false;
     free(ascii_digit);
     return true;

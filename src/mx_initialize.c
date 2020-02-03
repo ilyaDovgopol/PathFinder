@@ -4,24 +4,14 @@ static char *read_file(char *argv[], t_app *app);
 static void check_empty_lines(char *s, t_app *app);
 static void check_file(t_app *app);
 
-void mx_initialize(t_app *app, int argc, char *argv[]) {
-    char *s = NULL;
+void mx_initialize(t_app *app, char *argv[]) {
+    char *s = read_file(argv, app);
 
-    app->file_name = NULL;
-    app->file_to_str = NULL;
-    app->parsed_lines_arr = NULL;
-    app->city = NULL;
-    app->a_m = NULL;
-    app->dist_m = NULL;
-    if (argc != 2) {
-        mx_cast_error_message(MX_ARGUMENTS_INVALID_NUMBER, app);
-    }
-    s = read_file(argv, app);
     check_empty_lines(s, app);
     app->parsed_lines_arr = mx_strsplit(s, '\n');
     check_file(app);
     mx_parse_remaining_lines(app, app->parsed_lines_arr);
-    if (!app->city[app->size - 1]) {
+    if (!app->islands_arr[app->size - 1]) {
         mx_cast_error_message(MX_ISLANDS_INVALID_NUMBER, app);
     }
 }
