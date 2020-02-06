@@ -3,7 +3,7 @@
 static bool is_digit(int c);
 
 int mx_atoi(char *s) {
-    unsigned int res = 0;
+    int res = 0;
 
     while (*s) {
         if (!is_digit(*s)) {
@@ -12,7 +12,7 @@ int mx_atoi(char *s) {
         res = 10 * res + (*s) - 48;
         s++;
     }
-    return (int) res;
+    return res;
 }
 
 static bool is_digit(int c) {

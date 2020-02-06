@@ -57,8 +57,8 @@ static bool parse_line(char *line, char **island1, char **island2, int *dist) {
     int len = mx_strlen(line);
     char *ascii_digit = NULL;
 
-    if (dash_index == -1 || comma_index == -1 || len == 0
-        || dash_index > comma_index) {
+    if (dash_index == -1 || comma_index == -1 || dash_index > comma_index
+        || len == 0) {
         return false;
     }
     *island1 = mx_strndup(line, dash_index);
