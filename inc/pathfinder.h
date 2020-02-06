@@ -34,11 +34,11 @@ typedef struct s_stack {
     int size;
 }   t_stack;
 
-void mx_initialize(t_app *app, char *argv[]);
+void mx_initialize(t_app *app, int argc, char *argv[]);
 void mx_cast_error_message(e_err err, t_app *app);
 void mx_printerr(const char *s);
 int mx_atoi(char *s);
-void mx_parse_remaining_lines(t_app *app, char **parsed_str);
+void mx_parse_remaining_lines(t_app *app);
 bool mx_isalpha(int c);
 void mx_island_push_index(t_app *app, int dist, char *island1, char *island2);
 void mx_make_cost_matrix(t_app *app);

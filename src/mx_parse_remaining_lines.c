@@ -5,15 +5,15 @@ static void init_adjacency_matrix(t_app *app);
 static bool parse_line(char *line, char **island1, char **island2, int *dist);
 static bool is_valid_name(char *s);
 
-void mx_parse_remaining_lines(t_app *app, char **parsed_str) {
+void mx_parse_remaining_lines(t_app *app) {
     init_islands_arr(app);
     init_adjacency_matrix(app);
-    for (int i = 1; parsed_str[i] != NULL; i++) {
+    for (int i = 1; app->parsed_lines_arr[i] != NULL; i++) {
         char *island1 = NULL;
         char *island2 = NULL;
         int dist = -1;
 
-        if (parse_line(parsed_str[i], &island1, &island2, &dist)) {
+        if (parse_line(app->parsed_lines_arr[i], &island1, &island2, &dist)) {
             mx_island_push_index(app, dist, island1, island2);
         }
         else {
