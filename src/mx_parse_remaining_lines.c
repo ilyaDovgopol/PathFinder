@@ -28,7 +28,7 @@ void mx_parse_remaining_lines(t_app *app) {
 }
 
 static void init_islands_arr(t_app *app) {
-    app->islands_arr = malloc((app->size + 1) * sizeof(char *));
+    app->islands_arr = malloc((app->size + 1) * sizeof (char *));
     if (!app->islands_arr) {
         exit(1);
     }
@@ -38,7 +38,7 @@ static void init_islands_arr(t_app *app) {
 }
 
 static void init_adjacency_matrix(t_app *app) {
-    app->a_m = malloc(app->size * app->size * sizeof(int));
+    app->a_m = malloc(app->size * app->size * sizeof (int));
     for (int i = 0; i < app->size; i++) {
         for (int j = 0; j < app->size; j++) {
             if (i == j) {
@@ -75,7 +75,7 @@ static bool parse_line(char *line, char **island1, char **island2, int *dist) {
 }
 
 static bool is_valid_name(char *s) {
-    if (mx_strlen(s) == 0) {
+    if (!mx_strlen(s)) {
         return false;
     }
     while (*s) {

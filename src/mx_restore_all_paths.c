@@ -21,12 +21,12 @@ static void restore_allpaths_from_to(t_app *app, int j, int i) {
 }
 
 static void init_stack(t_stack **stack, t_app *app, int j, int i) {
-    *stack = malloc(sizeof(t_stack));
+    *stack = malloc(sizeof (t_stack));
     if (!(*stack)) {
         exit(1);
     }
     (*stack)->max_size = app->size;
-    (*stack)->path = malloc(((*stack)->max_size + 1) * sizeof(int));
+    (*stack)->path = malloc(((*stack)->max_size + 1) * sizeof (int));
     (*stack)->path[0] = j;
     (*stack)->path[1] = i;
     (*stack)->size = 1;

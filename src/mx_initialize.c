@@ -34,7 +34,7 @@ static void read_file(char *argv[], t_app *app) {
     }
     close(fd);
     app->file_to_str = mx_file_to_str(argv[1]);
-    if (!app->file_to_str || mx_strlen(app->file_to_str) == 0) {
+    if (!app->file_to_str || !mx_strlen(app->file_to_str)) {
         mx_cast_error_message(MX_FILE_IS_EMPTY, app);
     }
 }

@@ -1,7 +1,7 @@
 #include "libmx.h"
 
 void *mx_memmem(
-const void *big, size_t big_len, const void *little, size_t little_len) {
+    const void *big, size_t big_len, const void *little, size_t little_len) {
     const char *haystack = big;
     const char *last = haystack + big_len - little_len;
     const char *needle = little;

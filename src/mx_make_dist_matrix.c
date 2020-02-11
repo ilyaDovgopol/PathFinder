@@ -9,7 +9,7 @@ void mx_make_cost_matrix(t_app *app) {
 }
 
 static void init_dist_matrix(t_app *app) {
-    app->dist_m = malloc(app->size * app->size * sizeof(int));
+    app->dist_m = malloc(app->size * app->size * sizeof (int));
     for (int i = 0; i < app->size; i++) {
         for (int j = 0; j < app->size; j++) {
             app->dist_m[i * app->size + j] = app->a_m[i * app->size + j];

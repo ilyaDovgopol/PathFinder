@@ -10,7 +10,7 @@ char **mx_strsplit(const char *s, char c) {
 
     if (!s || !(*s) || !i)
         return NULL;
-    arr = (char **)malloc((i + 1) * sizeof(char *));
+    arr = (char **)malloc((i + 1) * sizeof (char *));
     if (!arr)
         return NULL;
     i = 0;
