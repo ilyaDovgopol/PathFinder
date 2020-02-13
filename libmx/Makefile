@@ -17,7 +17,7 @@ OBJ = $(SRCS:.c=.o)
 
 CFLAGS = -std=c11 -Wall -Wextra -Werror -Wpedantic
 
-all: install clean
+all: install
 
 install:
 	@mkdir -p obj

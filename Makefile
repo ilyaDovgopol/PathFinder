@@ -27,7 +27,7 @@ OBJS = $(addprefix $(OBJD)/, $(SRC:%.c=%.o))
 
 CFLG = -std=c11 $(addprefix -W, all extra error pedantic) -g
 
-all: install clean
+all: install
 
 install: $(LMXA) $(NAME)
 
