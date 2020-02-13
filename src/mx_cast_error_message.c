@@ -5,7 +5,7 @@ static void file_is_empty(t_app *app);
 static void line_is_not_valid(t_app *app);
 static void line_is_empty(t_app *app);
 
-void mx_cast_error_message(e_err err, t_app *app) {
+void mx_cast_error_message(t_err err, t_app *app) {
     if (err == MX_ARGUMENTS_INVALID_NUMBER)
         mx_printerr("usage: ./pathfinder [filename]");
     else if (err == MX_FILE_DOESNT_EXIST)

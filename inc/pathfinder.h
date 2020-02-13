@@ -16,7 +16,7 @@ typedef struct s_app {
     int *dist_m;
     size_t y;
     size_t x;
-}   t_app;
+}              t_app;
 
 typedef enum e_err {
     MX_ARGUMENTS_INVALID_NUMBER,
@@ -26,16 +26,16 @@ typedef enum e_err {
     MX_LINE_IS_EMPTY,
     MX_ISLANDS_INVALID_NUMBER,
     MX_LINE_ISNT_VALID
-}   e_err;
+}            t_err;
 
 typedef struct s_stack {
     int max_size;
     int *path;
     int size;
-}   t_stack;
+}              t_stack;
 
 void mx_initialize(t_app *app, int argc, char *argv[]);
-void mx_cast_error_message(e_err err, t_app *app);
+void mx_cast_error_message(t_err err, t_app *app);
 void mx_printerr(const char *s);
 int mx_atoi(char *s);
 void mx_parse_remaining_lines(t_app *app);
