@@ -1,6 +1,16 @@
 #include "libmx.h"
 
-static void nbr_to_dec_rec(int n, char *s);
+static void nbr_to_dec_rec(int n, char *s) {
+    int last_digit = n % 10;
+
+    if (n >= 10) {
+        nbr_to_dec_rec(n / 10, s);
+    }
+    while (*s) {
+        s++;
+    }
+    *s = last_digit + 48;
+}
 
 char *mx_itoa(int number) {
     char *s = NULL;
@@ -18,17 +28,5 @@ char *mx_itoa(int number) {
     }
     nbr_to_dec_rec(number, s);
     return s;
-}
-
-static void nbr_to_dec_rec(int n, char *s) {
-    int last_digit = n % 10;
-
-    if (n >= 10) {
-        nbr_to_dec_rec(n / 10, s);
-    }
-    while (*s) {
-        s++;
-    }
-    *s = last_digit + 48;
 }
 

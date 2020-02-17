@@ -6,7 +6,7 @@ char *mx_strnew(const int size) {
     if (size < 0) {
         return NULL;
     }
-    s = (char *)malloc((size + 1) * sizeof (char));
+    s = (char*)malloc((size + 1) * sizeof(char));
     if (!s) {
         return NULL;
     }

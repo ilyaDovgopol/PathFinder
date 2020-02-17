@@ -1,24 +1,5 @@
 #include "libmx.h"
 
-static bool replace_sub(char **s, char *str, char *sub, char *replace);
-
-char *mx_replace_substr(
-    const char *str, const char *sub, const char *replace) {
-    char *s = NULL;
-
-    if (!str || !(*str) || !sub || !(*sub) || !replace || !(*replace)) {
-        return NULL;
-    }
-    replace_sub(&s, (char *)str, (char *)sub, (char *)replace);
-    str = s;
-    while (replace_sub(&s, (char *)str, (char *)sub, (char *)replace)) {
-        free((char *)str);
-        str = s;
-    }
-    free((char *)str);
-    return s;
-}
-
 static bool replace_sub(char **s, char *str, char *sub, char *replace) {
     int indx = mx_get_substr_index(str, sub);
     int str_len = mx_strlen(str);
@@ -37,5 +18,22 @@ static bool replace_sub(char **s, char *str, char *sub, char *replace) {
     }
     *s = mx_strdup(str);
     return false;
+}
+
+char *mx_replace_substr(
+    const char *str, const char *sub, const char *replace) {
+    char *s = NULL;
+
+    if (!str || !(*str) || !sub || !(*sub) || !replace || !(*replace)) {
+        return NULL;
+    }
+    replace_sub(&s, (char*)str, (char*)sub, (char*)replace);
+    str = s;
+    while (replace_sub(&s, (char*)str, (char*)sub, (char*)replace)) {
+        free((char*)str);
+        str = s;
+    }
+    free((char*)str);
+    return s;
 }
 

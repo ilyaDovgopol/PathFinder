@@ -1,6 +1,15 @@
 #include "libmx.h"
 
-static void add_char_in_string(char *s, char c, int *j, bool *flag);
+static void add_char_in_string(char *s, char c, int *j, bool *flag) {
+    s[*j] = c;
+    (*j)++;
+    if (c != ' ') {
+        *flag = true;
+    }
+    else {
+        *flag = false;
+    }
+}
 
 char *mx_del_extra_spaces(const char *str) {
     char *s = NULL;
@@ -23,16 +32,5 @@ char *mx_del_extra_spaces(const char *str) {
     s = mx_strndup(ss, mx_strlen(ss));
     free(ss);
     return s;
-}
-
-static void add_char_in_string(char *s, char c, int *j, bool *flag) {
-    s[*j] = c;
-    (*j)++;
-    if (c != ' ') {
-        *flag = true;
-    }
-    else {
-        *flag = false;
-    }
 }
 

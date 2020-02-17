@@ -12,7 +12,7 @@ void *mx_memmem(
     while (haystack <= last) {
         if (*haystack == *needle) {
             if (mx_memcmp(haystack, needle, little_len) == 0) {
-                return (void *)haystack;
+                return (void*)haystack;
             }
         }
         haystack++;
