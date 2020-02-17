@@ -1,7 +1,7 @@
 #include "pathfinder.h"
 
 int main(int argc, char *argv[]) {
-    t_app *app = malloc(sizeof (t_app));
+    t_app *app = malloc(sizeof(t_app));
 
     mx_initialize(app, argc, argv);
     mx_make_cost_matrix(app);

@@ -1,6 +1,10 @@
 #include "pathfinder.h"
 
-static void del_matrix(int *m);
+static void del_matrix(int *m) {
+    if (m) {
+        free(m);
+    }
+}
 
 void mx_free_all(t_app *app) {
     mx_strdel(&(app->file_to_str));
@@ -8,11 +12,5 @@ void mx_free_all(t_app *app) {
     mx_del_strarr(&(app->islands_arr));
     del_matrix(app->a_m);
     del_matrix(app->dist_m);
-}
-
-static void del_matrix(int *m) {
-    if (m) {
-        free(m);
-    }
 }
 

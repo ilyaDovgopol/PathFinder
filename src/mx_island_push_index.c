@@ -1,24 +1,12 @@
 #include "pathfinder.h"
 
-static void push_element_in_island(t_app *app, char *elem);
-static int index_in_island(t_app *app, char *elem);
-
-void mx_island_push_index(t_app *app, int dist, char *island1, char *island2) {
-    int i = 0;
-    int j = 0;
-
-    if (app->sum_dist < 2147483647) {
-        app->sum_dist += dist;
+static int index_in_island(t_app *app, char *elem) {
+    for (int i = 0; i < app->size; i++) {
+        if (mx_strcmp(app->islands_arr[i], elem) == 0) {
+            return i;
+        }
     }
-    else {
-        exit(1);
-    }
-    push_element_in_island(app, island1);
-    push_element_in_island(app, island2);
-    i = index_in_island(app, island1);
-    j = index_in_island(app, island2);
-    app->a_m[i * app->size + j] = dist;
-    app->a_m[j * app->size + i] = dist;
+    return -1;
 }
 
 static void push_element_in_island(t_app *app, char *elem) {
@@ -41,12 +29,21 @@ static void push_element_in_island(t_app *app, char *elem) {
     }
 }
 
-static int index_in_island(t_app *app, char *elem) {
-    for (int i = 0; i < app->size; i++) {
-        if (mx_strcmp(app->islands_arr[i], elem) == 0) {
-            return i;
-        }
+void mx_island_push_index(t_app *app, int dist, char *island1, char *island2) {
+    int i = 0;
+    int j = 0;
+
+    if (app->sum_dist < 2147483647) {
+        app->sum_dist += dist;
     }
-    return -1;
+    else {
+        exit(1);
+    }
+    push_element_in_island(app, island1);
+    push_element_in_island(app, island2);
+    i = index_in_island(app, island1);
+    j = index_in_island(app, island2);
+    app->a_m[i * app->size + j] = dist;
+    app->a_m[j * app->size + i] = dist;
 }
 
