@@ -3,8 +3,7 @@
 
 #include "libmx.h"
 
-typedef struct s_app
-{
+typedef struct s_app {
     char *file_name;
     char *file_to_str;
     int k;
@@ -19,8 +18,7 @@ typedef struct s_app
     size_t x;
 }              t_app;
 
-typedef enum e_err
-{
+typedef enum e_err {
     MX_ARGUMENTS_INVALID_NUMBER,
     MX_FILE_DOESNT_EXIST,
     MX_FILE_IS_EMPTY,
@@ -30,8 +28,7 @@ typedef enum e_err
     MX_LINE_ISNT_VALID
 }            t_err;
 
-typedef struct s_stack
-{
+typedef struct s_stack {
     int max_size;
     int *path;
     int size;
