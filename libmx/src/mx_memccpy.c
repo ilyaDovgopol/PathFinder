@@ -14,4 +14,3 @@ void *mx_memccpy(
     }
     return NULL;
 }
-

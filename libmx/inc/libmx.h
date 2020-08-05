@@ -74,4 +74,3 @@ int mx_list_size(t_list *list);
 t_list *mx_sort_list(t_list *list, bool (*cmp)(void *, void *));
 
 #endif
-

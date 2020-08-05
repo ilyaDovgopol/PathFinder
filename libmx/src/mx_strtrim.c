@@ -19,4 +19,3 @@ char *mx_strtrim(const char *str) {
     }
     return mx_strndup(&str[start], end - start + 1);
 }
-

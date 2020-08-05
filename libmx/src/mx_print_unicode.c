@@ -22,4 +22,3 @@ void mx_print_unicode(wchar_t c) {
     }
     write(1, s, mx_strlen(s));
 }
-

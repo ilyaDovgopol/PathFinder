@@ -18,4 +18,3 @@ void mx_pop_back(t_list **head) {
     free(i->next);
     i->next = NULL;
 }
-

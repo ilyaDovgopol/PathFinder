@@ -19,4 +19,3 @@ int mx_count_words(const char *str, char c) {
     }
     return count;
 }
-

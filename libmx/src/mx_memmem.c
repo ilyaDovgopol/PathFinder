@@ -19,4 +19,3 @@ void *mx_memmem(
     }
     return NULL;
 }
-

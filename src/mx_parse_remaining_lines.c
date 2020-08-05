@@ -81,4 +81,3 @@ void mx_parse_remaining_lines(t_app *app) {
         free(island2);
     }
 }
-

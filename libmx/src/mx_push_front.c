@@ -13,4 +13,3 @@ void mx_push_front(t_list **list, void *data) {
     node->next = *list;
     *list = node;
 }
-

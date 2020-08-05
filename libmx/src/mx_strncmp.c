@@ -11,4 +11,3 @@ int mx_strncmp(const char *s1, const char *s2, size_t n) {
     }
     return (unsigned char)s1[i] - (unsigned char)s2[i];
 }
-

@@ -16,4 +16,3 @@ void mx_printint(int n) {
         mx_printchar(n % 10 + 48);
     }
 }
-

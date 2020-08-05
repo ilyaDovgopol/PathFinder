@@ -58,4 +58,3 @@ void mx_print_path_info(t_stack *stack, t_app *app) {
     mx_printstr("\n");
     write(1, "========================================", 40);
 }
-

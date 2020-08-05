@@ -7,4 +7,3 @@ void mx_pop_front(t_list **head) {
     free(*head);
     *head = (*head)->next;
 }
-

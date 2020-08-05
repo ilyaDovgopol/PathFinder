@@ -47,4 +47,3 @@ void mx_restore_path_helper(t_stack *stack, t_app *app) {
         }
     }
 }
-

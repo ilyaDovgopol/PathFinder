@@ -18,4 +18,3 @@ t_list *mx_sort_list(t_list *list, bool (*cmp)(void *, void *)) {
     }
     return list;
 }
-

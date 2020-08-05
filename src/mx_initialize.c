@@ -67,4 +67,3 @@ void mx_initialize(t_app *app, int argc, char *argv[]) {
         mx_cast_error_message(MX_ISLANDS_INVALID_NUMBER, app);
     }
 }
-

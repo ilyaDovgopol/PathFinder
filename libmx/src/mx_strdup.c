@@ -9,4 +9,3 @@ char *mx_strdup(const char *s1) {
     mx_strcpy(s, s1);
     return s;
 }
-

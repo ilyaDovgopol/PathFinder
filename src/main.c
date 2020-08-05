@@ -10,4 +10,3 @@ int main(int argc, char *argv[]) {
     mx_printchar('\n');
     return 0;
 }
-

@@ -38,4 +38,3 @@ char **mx_strsplit(const char *s, char c) {
     arr[i] = NULL;
     return arr;
 }
-

@@ -36,4 +36,3 @@ char *mx_replace_substr(
     free((char*)str);
     return s;
 }
-

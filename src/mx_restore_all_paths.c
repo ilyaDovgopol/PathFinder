@@ -28,4 +28,3 @@ void mx_restore_all_paths(t_app *app) {
         }
     }
 }
-

@@ -29,4 +29,3 @@ char *mx_itoa(int number) {
     nbr_to_dec_rec(number, s);
     return s;
 }
-

@@ -16,4 +16,3 @@ int mx_atoi(char *s) {
     }
     return res;
 }
-

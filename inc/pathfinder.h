@@ -48,4 +48,3 @@ void mx_print_path_info(t_stack *stack, t_app *app);
 void mx_free_all(t_app *app);
 
 #endif
-

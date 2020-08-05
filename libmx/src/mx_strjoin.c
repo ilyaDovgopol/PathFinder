@@ -20,4 +20,3 @@ char *mx_strjoin(const char *s1, const char *s2) {
     mx_strcat(s, s2);
     return s;
 }
-

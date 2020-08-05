@@ -21,4 +21,3 @@ void mx_push_back(t_list **list, void *data) {
     }
     i->next = node;
 }
-

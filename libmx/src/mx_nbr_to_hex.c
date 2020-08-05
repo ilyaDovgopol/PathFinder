@@ -21,4 +21,3 @@ char *mx_nbr_to_hex(unsigned long nbr) {
     nbr_to_hex_rec(nbr, s);
     return s;
 }
-

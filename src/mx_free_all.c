@@ -13,4 +13,3 @@ void mx_free_all(t_app *app) {
     del_matrix(app->a_m);
     del_matrix(app->dist_m);
 }
-

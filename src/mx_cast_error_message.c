@@ -50,4 +50,3 @@ void mx_cast_error_message(t_err err, t_app *app) {
     mx_printerr("\n");
     exit(1);
 }
-

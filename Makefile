@@ -58,4 +58,3 @@ clean:
 	@printf "$(OBJD)\t \033[31;1mdeleted\033[0m\n"
 
 reinstall: uninstall install
-

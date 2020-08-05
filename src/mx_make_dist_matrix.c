@@ -31,4 +31,3 @@ void mx_make_cost_matrix(t_app *app) {
     init_dist_matrix(app);
     use_floyd_warshall_algorithm(app);
 }
-

@@ -46,4 +46,3 @@ void mx_island_push_index(t_app *app, int dist, char *island1, char *island2) {
     app->a_m[i * app->size + j] = dist;
     app->a_m[j * app->size + i] = dist;
 }
-
