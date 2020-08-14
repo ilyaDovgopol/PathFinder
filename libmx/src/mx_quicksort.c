@@ -1,10 +1,5 @@
 #include "libmx.h"
 
-static void incr_and_decr(int *i, int *j) {
-    (*i)++;
-    (*j)--;
-}
-
 static void swap(char **s1, char **s2, int *count) {
     char *swap = *s1;
 
@@ -14,17 +9,6 @@ static void swap(char **s1, char **s2, int *count) {
     *s1 = *s2;
     *s2 = swap;
     (*count)++;
-}
-
-static void quicksort(char **arr, int *i, char *pivot, int *j) {
-    int len = mx_strlen(pivot);
-
-    while (mx_strlen(arr[*i]) - len < 0) {
-        (*i)++;
-    }
-    while (mx_strlen(arr[*j]) - len > 0) {
-        (*j)--;
-    }
 }
 
 int mx_quicksort(char **arr, int left, int right) {
@@ -37,10 +21,14 @@ int mx_quicksort(char **arr, int left, int right) {
     if (left >= right)
         return 0;
     while (i <= j) {
-        quicksort(arr, &i, arr[(left + right) / 2], &j);
+        while (mx_strlen(arr[i]) - mx_strlen(arr[(left + right) / 2]) < 0)
+            i++;
+        while (mx_strlen(arr[j]) - mx_strlen(arr[(left + right) / 2]) > 0)
+            j--;
         if (i <= j) {
             swap(&arr[i], &arr[j], &count);
-            incr_and_decr(&i, &j);
+            i++;
+            j--;
         }
     }
     if (left < j)
